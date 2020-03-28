@@ -1,0 +1,26 @@
+{
+  "name": "@enesusta/easy-bookmarks-server",
+  "version": "1.0.0",
+  "description": "Nodejs backend for @enesusta/easy-bookmarks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enesusta/easy-bookmarks-server.git"
+  },
+  "keywords": [
+    "Chrome",
+    "bookmarks"
+  ],
+  "author": "Enes Usta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enesusta/easy-bookmarks-server/issues"
+  },
+  "homepage": "https://github.com/enesusta/easy-bookmarks-server#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
