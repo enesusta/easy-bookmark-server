@@ -4,7 +4,8 @@ services:
     node_test:
         container_name: node_test
         build: .
+        image: enesusta/bookmarks-server:1
         ports: 
-            - '3005:3000'
+            - '9050:3000'
         volumes: 
             - c:/Users/Enes/AppData/Local/Google/Chrome/User Data/Default:/data/json

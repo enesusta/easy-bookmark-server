@@ -1,18 +1,20 @@
 const express = require("express");
 const app = express();
-const rawdata = fs.readFileSync("/data/json/Bookmarks");
-
+const cors = require("./src/cors");
+const rawdata = require("./src/rawdata");
+const titles = require("./src/titles");
+const children = require("./src/children");
 const bookmarks = JSON.parse(rawdata);
 
-console.log(bookmarks.roots.bookmark_bar.children[0].name);
+const titlesArr = titles(bookmarks);
 
-for (let i = 0; i < bookmarks.roots.bookmark_bar.children.length; i++) {
-  console.log(`${i} is ${bookmarks.roots.bookmark_bar.children[i].name}`);
-}
-
-app.get("/", function(req, res) {
-  res.json(bookmarks.roots.bookmark_bar.children[16]);
-  console.log("geleyir");
+app.get("/headers", cors, function(req, res) {
+  res.json(titlesArr);
 });
 
-app.listen(3000, () => console.log("listening on 3000"));
+app.get("/bookmark/:id", cors, function(req, res) {
+  const id = req.params.id;
+  res.json(children(bookmarks, id));
+});
+
+app.listen(3000, () => console.log("listening on 9050"));
